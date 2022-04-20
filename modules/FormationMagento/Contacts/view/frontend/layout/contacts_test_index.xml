@@ -8,9 +8,9 @@
         <referenceContainer name="content">
 
 			<!-- On rajoute un bloc qui utilisera le template définit dans template -->
-            <block
-				class="Magento\Framework\View\Element\Template"
-				name="contactForm"
+            <block 
+				class="Magento\Framework\View\Element\Template" 
+				name="contactForm" 
 				template="FormationMagento_Contacts::test_index.phtml"></block>
 
         </referenceContainer>

@@ -2,12 +2,15 @@
 
 namespace FormationMagento\Contacts\Controller\Test;
 
-use Magento\Magento\Framework\App\Action;
-
-class Index extends Action
+class Index extends \Magento\Framework\App\Action\Action
 {
     public function execute()
     {
-        die('test index');
+        //die('test index');
+
+        $this->_view->loadLayout();
+
+        $this->_view->renderLayout();
+
     }
 }

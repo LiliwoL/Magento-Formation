@@ -1,5 +1,6 @@
 <?php
 namespace FormationMagento\Contacts\Controller\Test;
+
 class View extends \Magento\Framework\App\Action\Action
 {
     public function execute()
