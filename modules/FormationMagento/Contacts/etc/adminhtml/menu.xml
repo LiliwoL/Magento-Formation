@@ -12,10 +12,21 @@
 		/>
 
         <add 
-			id="FormationMagento_Contacts::index" 
+			id="FormationMagento_Contacts::view" 
 			title="Formation Magento Contacts" 
 			module="FormationMagento_Contacts" 
 			action="contacts/test/index" 
+			parent="FormationMagento_Contacts" 
+			sortOrder="20" 
+			dependsOnModule="FormationMagento_Contacts" 
+			resource="FormationMagento_Contacts::contacts"
+		/>
+
+		<add 
+			id="FormationMagento_Contacts::index" 
+			title="Formation Magento Contacts" 
+			module="FormationMagento_Contacts" 
+			action="contacts/contact/index" 
 			parent="FormationMagento_Contacts" 
 			sortOrder="20" 
 			dependsOnModule="FormationMagento_Contacts" 
