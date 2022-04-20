@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!-- Page définit quel layout du thème on va utiliser. Ici 1column -->
+<page
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	layout="1column"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+>
+    <body>
+		<!-- On récupère le block du layout 1column avec le nom content -->
+        <referenceContainer name="content">
+
+			<!-- On rajoute un bloc qui utilisera le template définit dans template -->
+            <block
+				class="Magento\Framework\View\Element\Template"
+				name="contactForm"
+				template="FormationMagento_Contacts::test_view.phtml"></block>
+
+        </referenceContainer>
+    </body>
+</page>
