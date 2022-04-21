@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+
+    <menu>
+		<!-- Premier niveau-->
+        <add 
+			id="FormationMagento_Contacts" 
+			title="Formation Magento Contacts" 
+			module="FormationMagento_Contacts" 
+			sortOrder="20" 
+			dependsOnModule="FormationMagento_Contacts" 
+			resource="FormationMagento_Contacts::contacts"
+		/>
+
+		<!-- Deuxième niveau-->
+        <add 
+			id="FormationMagento_Contacts::view" 
+			title="Contrôleur Test" 
+			module="FormationMagento_Contacts" 
+			action="contacts/test/index" 
+			parent="FormationMagento_Contacts" 
+			sortOrder="20" 
+			dependsOnModule="FormationMagento_Contacts" 
+			resource="FormationMagento_Contacts::contacts"
+		/>
+
+    </menu>
+</config> 
