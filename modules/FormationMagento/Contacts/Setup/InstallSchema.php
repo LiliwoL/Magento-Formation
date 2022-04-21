@@ -7,9 +7,9 @@ use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 
 /**
- * @codeCoverageIgnore
+ * Classe appelée à l'installation du module
  */
-class InstallSchema implements InstallSchemaInterface 
+class InstallSchema implements InstallSchemaInterface
 {
 
     /**
@@ -17,16 +17,18 @@ class InstallSchema implements InstallSchemaInterface
      * @param ModuleContextInterface $context
      * @throws \Zend_Db_Exception
      */
-    public function install(SchemaSetupInterface $setup, ModuleContextInterface $context) {
+    public function install( SchemaSetupInterface $setup, ModuleContextInterface $context )
+	{
         $setup->startSetup();
 
         /**
          * Create table 'FormationMagento_contacts'
          */
-        if (!$setup->getConnection()->isTableExists($setup->getTable('FormationMagento_contacts'))) 
+        if (!$setup->getConnection()->isTableExists($setup->getTable('FormationMagento_contacts')))
 		{
-			
+			// On récupère la connexion à la base
             $table = $setup->getConnection()
+				// Et on crée une nouvelle table
                 ->newTable($setup->getTable('FormationMagento_contacts'))
                 ->addColumn(
                     'FormationMagento_contacts_id',
@@ -53,8 +55,9 @@ class InstallSchema implements InstallSchemaInterface
                 ->setOption('type', 'InnoDB')
                 ->setOption('charset', 'utf8');
 
+			// La création de la table est vraiment appliquée à la base
             $setup->getConnection()->createTable($table);
         }
         $setup->endSetup();
     }
-} 
+}
