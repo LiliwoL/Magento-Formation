@@ -10,7 +10,7 @@ use Magento\Framework\Model\AbstractModel;
  *
  * @author      Formation Magento
  */
-class Contact extends AbstractModel 
+class Contact extends AbstractModel
 {
     /**
      * @var \Magento\Framework\Stdlib\DateTime
@@ -20,10 +20,9 @@ class Contact extends AbstractModel
     /**
      * @return void
      */
-    protected function _construct() 
+    protected function _construct()
 	{
 		// On initialise le ResourceModelÒ
         $this->_init( ResourceModelContact::class );
     }
-    
-} 
+}

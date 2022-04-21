@@ -9,15 +9,14 @@ use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
  *
  * @author      Formation Magento
  */
-class Collection extends AbstractCollection 
-
+class Collection extends AbstractCollection
 {
     /**
      * Initialize resource collection
      *
      * @return void
      */
-    public function _construct() 
+    public function _construct()
 	{
        // Initialisation
 		$this->_init(
@@ -25,4 +24,4 @@ class Collection extends AbstractCollection
 			'FormationMagento\Contacts\Model\ResourceModel\Contact'		// ResourceModel
 		);
     }
-} 
+}
