@@ -2,28 +2,30 @@
 
 namespace FormationMagento\Contacts\Setup;
 
-use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
-use Magento\Catalog\Model\ResourceModel\Product\Gallery;
-use Magento\Catalog\Model\Product\Attribute\Backend\Media\ImageEntryConverter;
+use Magento\Framework\Setup\UpgradeSchemaInterface;
 
-/**
- * Upgrade the Catalog module DB scheme
- */
-class UpgradeSchema implements UpgradeSchemaInterface 
+class UpgradeSchema implements UpgradeSchemaInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context) 
+
+	/**
+	 * Méthode appelée à l'upgrade du module
+	 *
+	 * @param SchemaSetupInterface $setup
+	 * @param ModuleContextInterface $context
+	 * @return void
+	 */
+	public function upgrade(  SchemaSetupInterface $setup, ModuleContextInterface $context )
 	{
-        $setup->startSetup();
 
-        if (version_compare($context->getVersion(), '0.2.0', '<')) 
+		$setup->startSetup();
+
+		if ( version_compare( $context->getVersion(), '0.2.0', '<') )
 		{
-
-            $tableName = $setup->getTable('FormationMagento_contacts');
+			// La version installée est infériéure à 0.2.0
+			// On peut mettre à jour la table
+			$tableName = $setup->getTable( 'FormationMagento_contacts' );
 
 			// Ajout d'une colonne à la table
             $setup->getConnection()->addColumn($tableName, 'comment', [
@@ -37,5 +39,6 @@ class UpgradeSchema implements UpgradeSchemaInterface
         }
 
         $setup->endSetup();
-    }
-} 
+
+	}
+}
