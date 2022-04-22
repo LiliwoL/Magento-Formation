@@ -5,24 +5,20 @@ namespace FormationMagento\Contacts\Model;
 use FormationMagento\Contacts\Model\ResourceModel\Contact as ResourceModelContact;
 use Magento\Framework\Model\AbstractModel;
 
-/**
- * Contact Model
- *
- * @author      Formation Magento
- */
+
 class Contact extends AbstractModel
 {
-    /**
-     * @var \Magento\Framework\Stdlib\DateTime
-     */
-    protected $_dateTime;
+	// Attributs
 
-    /**
-     * @return void
-     */
-    protected function _construct()
+
+	// Méthodes
+
+	// Attention, un seul underscore
+	protected function _construct()
 	{
-		// On initialise le ResourceModelÒ
-        $this->_init( ResourceModelContact::class );
-    }
+		// A l'initialisation, on associe à ce model le resourceModel Contact
+		$this->_init(
+			ResourceModelContact::class
+		);
+	}
 }

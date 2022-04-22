@@ -4,25 +4,17 @@ namespace FormationMagento\Contacts\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-/**
- * Contact Resource Model
- *
- * @author      Formation Magento
- */
-class Contact extends AbstractDb 
+class Contact extends AbstractDb
 {
 
-    /**
-     * Initialize resource
-     *
-     * @return void
-     */
-    public function _construct() 
+	// On doit implémenter la méthode _construct() avec un seul underscore
+	public function _construct()
 	{
-		// Initialisation du ResourceModel
-        $this->_init(
-			'FormationMagento_contacts', 	// Nom de la table
+		// Liaison avec la table de la BD
+		$this->_init(
+			'FormationMagento_contacts', 	// Nom de la table liée à ce ResourceModel
 			'FormationMagento_contacts_id'	// Clé primaire de la table
 		);
-    }
-} 
+	}
+
+}
