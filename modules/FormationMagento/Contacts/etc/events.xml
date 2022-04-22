@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+	<event name="newsletter_subscriber_save_after">
+        <observer
+			name="formationmagento_contacts_adminnotification"
+			instance="FormationMagento\Contacts\Observer\AdminNotification" />
+    </event>
+
+
+	<event name="contact_add_after">
+        <observer
+			name="formationmagento_contacts_contactobserver"
+			instance="FormationMagento\Contacts\Observer\ContactObserver" />
+    </event>
+
+</config>
