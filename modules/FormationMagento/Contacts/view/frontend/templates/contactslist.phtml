@@ -67,4 +67,29 @@
             </tr>
         <?php endforeach; ?>
     </table>
+
+
+    <h2>Contacts de la base</h2>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>email</th>
+        </tr>
+
+		<?php
+			// Appel de la méthode, du bloc
+			$contacts = $this->getAllContacts();
+        ?>
+
+		<?php foreach ($contacts as $contact): ?>
+			<tr>
+				<td><?php echo $contact->getName(); ?></td>
+				<td><?php echo $contact->getEmail(); ?></td>
+			</tr>
+		<?php endforeach; ?>
+
+    </table>
+
+
 </div>

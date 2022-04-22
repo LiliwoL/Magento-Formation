@@ -3,6 +3,7 @@
 
 namespace FormationMagento\Contacts\Block;
 
+use FormationMagento\Contacts\Model\ResourceModel\Contact\Collection;
 use Magento\Framework\View\Element\Template;
 
 /**
@@ -11,6 +12,15 @@ use Magento\Framework\View\Element\Template;
 class Contactslist extends Template
 {
 	/**
+	 * Undocumented variable
+	 *
+	 * @var FormationMagento\Contacts\Model\ResourceModel\Contact\Collection
+	 */
+	private $contactCollection;
+
+
+
+	/**
 	 * Constructeur qui ajoute une donnée contact
 	 *
 	 * @param Template\Context $context
@@ -18,6 +28,9 @@ class Contactslist extends Template
 	 */
 	public function __construct(
 		Template\Context $context,
+
+		// Injection de la dépendance
+        Collection $contactCollection,
 		array $data = []
 	){
 		parent::__construct( $context, $data);
@@ -26,6 +39,9 @@ class Contactslist extends Template
 		// Ce tableau contiendra la liste des contacts
 		$this->setData( 'contacts', array() );
 		// La méthode setData est disponible via DataObject
+
+
+		$this->contactCollection = $contactCollection;
 	}
 
 
@@ -53,4 +69,18 @@ class Contactslist extends Template
 		// Mise à jour du tableau et de la data 'contacts'
         $this->setData('contacts', $_contacts);
     }
+
+	public function getAllContacts()
+	{
+		// Collection avec des filtres
+        $this->contactCollection
+						->addFieldToFilter(
+							'name',
+							array(
+								'like' => '%'
+							)
+						);
+
+		return $this->contactCollection;
+	}
 }
